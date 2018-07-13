@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +14,309 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rfn-C2-jNy">
+                                <rect key="frame" x="0.0" y="36" width="320" height="444"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tk4-zT-npz">
+                                        <rect key="frame" x="8" y="0.0" width="304" height="74"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5g-wp-02n">
+                                        <rect key="frame" x="0.0" y="74" width="320" height="74"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvl-t8-YGg" customClass="AnotherActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="74"/>
+                                                <color key="backgroundColor" white="0.53385189509999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="C">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dIt-bp-dwy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2s-9G-zCm" customClass="AnotherActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="160" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.53385189509999997" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="+/-">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="plusMinusButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hu3-GV-DI3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVR-he-8AO" customClass="ActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="240" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="/">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VwW-Rb-wRA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="I2s-9G-zCm" firstAttribute="width" secondItem="mvl-t8-YGg" secondAttribute="width" multiplier="0.5" id="eOJ-Lb-EUg"/>
+                                            <constraint firstItem="FVR-he-8AO" firstAttribute="width" secondItem="mvl-t8-YGg" secondAttribute="width" multiplier="0.5" id="oYr-xP-Ke9"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PU4-tv-znx">
+                                        <rect key="frame" x="0.0" y="148" width="320" height="74"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9w-zx-eNc" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hg0-36-3aj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-fp-vG8" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="80" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="If2-6b-brY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnt-lK-jPD" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="160" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtb-53-VEA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwW-tR-J5R" customClass="ActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="240" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="x">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OKz-wg-5is"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lwW-tR-J5R" firstAttribute="width" secondItem="Z9w-zx-eNc" secondAttribute="width" id="KKP-dl-U2G"/>
+                                            <constraint firstItem="dhm-fp-vG8" firstAttribute="width" secondItem="Z9w-zx-eNc" secondAttribute="width" id="KVc-Ai-h4X"/>
+                                            <constraint firstItem="Hnt-lK-jPD" firstAttribute="width" secondItem="Z9w-zx-eNc" secondAttribute="width" id="xY5-9Y-t2D"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1p-XV-FCT">
+                                        <rect key="frame" x="0.0" y="222" width="320" height="74"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6a-1L-bja" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bBV-V6-9aE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsV-E6-hcj" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="80" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OsP-MC-cBk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4p-S4-mjJ" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="160" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chi-60-Nfr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJn-GD-cqy" customClass="ActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="240" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLD-UA-AYF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="wJn-GD-cqy" firstAttribute="width" secondItem="t6a-1L-bja" secondAttribute="width" id="6n3-s1-Cce"/>
+                                            <constraint firstItem="N4p-S4-mjJ" firstAttribute="width" secondItem="t6a-1L-bja" secondAttribute="width" id="paW-cg-pjR"/>
+                                            <constraint firstItem="lsV-E6-hcj" firstAttribute="width" secondItem="t6a-1L-bja" secondAttribute="width" id="tsC-K0-FNp"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgC-N3-DII">
+                                        <rect key="frame" x="0.0" y="296" width="320" height="74"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THq-u6-A5O" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G5T-cz-lyt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-lG-3AD" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="80" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PkL-Fb-oES"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-7c-ODO" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="160" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E3n-vh-bOp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pG-o0-vp6" customClass="ActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="240" y="0.0" width="80" height="74"/>
+                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mX6-xr-2gB"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="d3q-lG-3AD" firstAttribute="width" secondItem="THq-u6-A5O" secondAttribute="width" id="5mr-Zd-Urw"/>
+                                            <constraint firstItem="9pG-o0-vp6" firstAttribute="width" secondItem="THq-u6-A5O" secondAttribute="width" id="ZWl-cA-mvR"/>
+                                            <constraint firstItem="fVU-7c-ODO" firstAttribute="width" secondItem="THq-u6-A5O" secondAttribute="width" id="Zdd-mN-vUB"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="RIY-LG-WCM">
+                                        <rect key="frame" x="0.0" y="370" width="320" height="74"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3l-Hk-xG1" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="numberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cl4-fQ-Fg7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fC4-FD-JY0" customClass="NumberUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="160" y="0.0" width="80.5" height="74"/>
+                                                <color key="backgroundColor" white="0.69471344020000003" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title=".">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="dotAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qUS-zE-Lrj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ec7-vD-15j" customClass="ActionUIButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="240.5" y="0.0" width="79.5" height="74"/>
+                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <state key="normal" title="=">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="57t-Q6-XlU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="fC4-FD-JY0" firstAttribute="top" secondItem="RIY-LG-WCM" secondAttribute="top" id="4D9-a8-LTP"/>
+                                            <constraint firstItem="l3l-Hk-xG1" firstAttribute="top" secondItem="RIY-LG-WCM" secondAttribute="top" id="B8X-kH-5sE"/>
+                                            <constraint firstItem="ec7-vD-15j" firstAttribute="top" secondItem="RIY-LG-WCM" secondAttribute="top" id="Fdb-Fm-2fi"/>
+                                            <constraint firstItem="ec7-vD-15j" firstAttribute="width" secondItem="l3l-Hk-xG1" secondAttribute="width" multiplier="0.5" id="Maa-lX-bf6"/>
+                                            <constraint firstItem="fC4-FD-JY0" firstAttribute="width" secondItem="l3l-Hk-xG1" secondAttribute="width" multiplier="0.5" id="fYg-4p-OyG"/>
+                                            <constraint firstAttribute="bottom" secondItem="ec7-vD-15j" secondAttribute="bottom" id="o5b-rs-oHk"/>
+                                            <constraint firstAttribute="bottom" secondItem="l3l-Hk-xG1" secondAttribute="bottom" id="qof-ya-YD7"/>
+                                            <constraint firstAttribute="bottom" secondItem="fC4-FD-JY0" secondAttribute="bottom" id="vtj-a6-mud"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="PU4-tv-znx" secondAttribute="trailing" id="4X6-r2-aJU"/>
+                                    <constraint firstItem="D5g-wp-02n" firstAttribute="leading" secondItem="rfn-C2-jNy" secondAttribute="leading" id="F5k-Lz-Oo3"/>
+                                    <constraint firstItem="X1p-XV-FCT" firstAttribute="leading" secondItem="rfn-C2-jNy" secondAttribute="leading" id="FMb-KI-KpZ"/>
+                                    <constraint firstItem="tk4-zT-npz" firstAttribute="leading" secondItem="rfn-C2-jNy" secondAttribute="leading" constant="8" id="Gdl-y2-sXs"/>
+                                    <constraint firstItem="RIY-LG-WCM" firstAttribute="leading" secondItem="rfn-C2-jNy" secondAttribute="leading" id="Gm4-uO-UG9"/>
+                                    <constraint firstItem="tk4-zT-npz" firstAttribute="height" secondItem="D5g-wp-02n" secondAttribute="height" id="N3U-6j-d5S"/>
+                                    <constraint firstItem="X1p-XV-FCT" firstAttribute="height" secondItem="D5g-wp-02n" secondAttribute="height" id="OXf-Xo-NrR"/>
+                                    <constraint firstAttribute="trailing" secondItem="D5g-wp-02n" secondAttribute="trailing" id="QEq-DC-JBK"/>
+                                    <constraint firstAttribute="trailing" secondItem="RIY-LG-WCM" secondAttribute="trailing" id="bvx-k4-pgf"/>
+                                    <constraint firstItem="RIY-LG-WCM" firstAttribute="height" secondItem="D5g-wp-02n" secondAttribute="height" id="eb5-4m-DK5"/>
+                                    <constraint firstItem="PU4-tv-znx" firstAttribute="leading" secondItem="rfn-C2-jNy" secondAttribute="leading" id="f0u-T2-W6j"/>
+                                    <constraint firstItem="PU4-tv-znx" firstAttribute="height" secondItem="D5g-wp-02n" secondAttribute="height" id="fCx-5d-F9V"/>
+                                    <constraint firstItem="hgC-N3-DII" firstAttribute="height" secondItem="D5g-wp-02n" secondAttribute="height" id="m20-jm-hUM"/>
+                                    <constraint firstAttribute="trailing" secondItem="X1p-XV-FCT" secondAttribute="trailing" id="u7H-rc-nIR"/>
+                                    <constraint firstItem="hgC-N3-DII" firstAttribute="leading" secondItem="rfn-C2-jNy" secondAttribute="leading" id="v24-Gr-O30"/>
+                                    <constraint firstAttribute="trailing" secondItem="tk4-zT-npz" secondAttribute="trailing" constant="8" id="wAr-2i-Oql"/>
+                                    <constraint firstAttribute="trailing" secondItem="hgC-N3-DII" secondAttribute="trailing" id="xLa-8M-iOB"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rfn-C2-jNy" secondAttribute="bottom" id="U5d-HH-bwC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rfn-C2-jNy" secondAttribute="trailing" id="b44-gZ-qIA"/>
+                            <constraint firstItem="rfn-C2-jNy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="brr-WN-bs2"/>
+                            <constraint firstItem="rfn-C2-jNy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="36" id="cRR-15-6cy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="calculatorDisplay" destination="tk4-zT-npz" id="OVG-sc-HvB"/>
+                        <outlet property="stackView" destination="rfn-C2-jNy" id="vXJ-K9-Bot"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

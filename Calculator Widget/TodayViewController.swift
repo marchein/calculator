@@ -1,37 +1,28 @@
 //
-//  ViewController.swift
-//  Calculator
+//  TodayViewController.swift
+//  Calculator Widget
 //
 //  Created by Marc Hein on 12.07.18.
 //  Copyright © 2018 Marc Hein. All rights reserved.
 //
 
 import UIKit
+import NotificationCenter
 
-class ViewController: UIViewController {
+class TodayViewController: UIViewController, NCWidgetProviding {
     // MARK: Data
     var numberOnScreen: Double = -1
     var previousNumber: Double = -1
     var performingMath = false
     var operation = String()
     let basti = SimpleSound(named: "basti")
+
     
-    // MARK: Outlets
     @IBOutlet weak var calculatorDisplay: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     
-    // MARK: Actions
-    @IBAction func clearButton(_ sender: Any) {
-        calculatorDisplay.text = "0"
-        numberOnScreen = -1
-        previousNumber = -1
-        operation = String()
-    }
-    
-    @IBAction func plusMinusButton(_ senderssh : UIButton) {
-        numberOnScreen = Double(calculatorDisplay.text!)! * -1
-        calculatorDisplay.text = String(numberOnScreen)
-        removeDotZero(calculatorDisplay)
+    @IBAction func displayLongPressGesture(_ sender: Any) {
+        print("long press")
     }
     
     @IBAction func numberAction(_ sender: UIButton) {
@@ -49,7 +40,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func operationAction(_ sender: ActionUIButton) {
+    @IBAction func operationAction(_ sender: UIButton) {
         let currentButtonOperation = sender.currentTitle!
         if calculatorDisplay.text! != "" && currentButtonOperation != "=" {
             previousNumber = Double(calculatorDisplay.text!)!
@@ -63,7 +54,6 @@ class ViewController: UIViewController {
                         calculatorDisplay.text = String(previousNumber / numberOnScreen)
                     } else {
                         basti.play()
-                        clearButton(self)
                     }
                 case "x":
                     calculatorDisplay.text = String(previousNumber * numberOnScreen)
@@ -86,18 +76,33 @@ class ViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         let allButtons = getAllButtons(stackView: stackView)
         for currentButton in allButtons {
-            addBorderTo(button: currentButton, width: 0.3, color: UIColor.black.cgColor)
+            addBorderTo(button: currentButton, width: 0.5, color: UIColor.black.cgColor)
         }
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view from its nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        let expanded = activeDisplayMode == .expanded
+        preferredContentSize = expanded ? CGSize(width: maxSize.width, height: 200) : maxSize
+    }
+    
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        // Perform any setup necessary in order to update the view.
+        
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+        
+        completionHandler(NCUpdateResult.newData)
     }
 }
